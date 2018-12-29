@@ -1,0 +1,19 @@
+<center>
+  <h1>DMサンプルアプリ</h1>
+  <% if user_signed_in? %>
+   <p><a href="/users/<%= current_user.id %>">
+     <h2>Hello <%= current_user.email %></h2>
+   </p>
+</center>
+  <div>
+  <% @users.each do |u| %>
+  <p class="box17">
+    <a href="/users/<%= u.id %>"><%= u.email %>さん</a>
+  </p>
+  </div>
+  <% end %>
+<% else %>
+  <%= link_to "ユーザーを登録する", new_user_registration_path %>
+  <br>
+  <%= link_to "ログインする", new_user_session_path %>
+<% end %>

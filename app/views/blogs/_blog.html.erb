@@ -1,0 +1,14 @@
+<div class="container-fluid">
+<div class="row">
+ <div class"col-md-3">
+ <id="blog-<%= blog.id %>">
+  <p class="user"><%= link_to blog.user.name, blog.user %></p>
+  <p class="title"><%= blog.title %></p>
+  <p class="image"><%= blog.image %></p>
+  <p class="content"><%= blog.content %></p>
+  <p class="timestamp">
+    Posted <%= time_ago_in_words(blog.created_at) %> ago.
+  </p>
+ </div>
+</div>
+</div>

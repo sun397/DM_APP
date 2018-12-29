@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                               'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application',
+                               'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+  
+  <body>
+    <% if user_signed_in? %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "DM app", root_path, id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "ホーム",   root_path %></li>
+            <li><%= link_to "マイページ", users_path(params[:id]) %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+    </div>
+    <% else %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "DM app", root_path, id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "ホーム",   root_path %></li>
+            <li><%= link_to "ユーザー登録",  new_user_registration_path  %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <center>
+      <h1>DMアプリ<div class="img-wrap"><%= image_tag("illustration_a_03.png") %></h1></div>
+    </center>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<h3>記事(<%= @user.blogs.count %>)</h3>
+      <ol class="blogs">
+        <% @blogs.each do |blog| %>
+         <%= link_to blog do %>
+           <div class="blog"><center>
+             <p class="title"><%= blog.title %></p>
+             <%= image_tag("BMW-logo.png", :size => "40x40") %>
+             <p class="timestamp">Posted <%= time_ago_in_words(blog.created_at) %> ago.</p></center>
+           </div>
+         <% end %>
+        <% end %>
+      </ol>
