@@ -1,5 +1,5 @@
 <%= form_for(@blog) do |f| %>
-  <div class="field">
+  <div class="bfield">
     <div class="form-group padding-top-15">
     <%= f.text_area :title, placeholder: "title...", class: "form-control" %>
     </div>
@@ -9,6 +9,6 @@
     <div class="form-group">
     <%= f.text_area :content, placeholder: "content...", rows: 10, class: "form-control" %>
     </div>
-  </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
+  </div>
 <% end %>

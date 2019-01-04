@@ -1,11 +1,22 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "./users";
+@import "./blogs";
+@import "./messages";
+@import "./rooms";
 @import "bootstrap";
 
 /* universal */
 
-body {
-  padding-top: 60px;
-  background-color: #F5FFFA;
+
+.haikei{
+  background-image : url(_s_a12Cb12Cc12Cd12Ce0f0g64hEFF2E2E4E1C4DECEAEDDB79DABDBF3iB5.png );
+}
+
+.haikei1{
+  background-color: #F0FFF0	;
+  width: 250px;
+  position: fixed;
+  right: 30px;
 }
 
 section {
@@ -22,33 +33,6 @@ textarea {
 
 .center h1 {
   margin-bottom: 10px;
-}
-
-/* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: #777;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
 }
 
 
@@ -76,69 +60,63 @@ p {
 	padding: 10px;
 }
 
-.box17{
-  float: left;
-  width: 33.333333%;
-    margin:2em 0;
-    position: relative;
-    padding: 0.5em 1.5em;
-    border-top: solid 2px black;
-    border-bottom: solid 2px black;
-}
-.box17:before, .box17:after{
-    content: '';
-    position: absolute;
-    top: -10px;
-    width: 2px;
-    height: -webkit-calc(100% + 20px);
-    height: calc(100% + 20px);
-    background-color: black;
-}
-.box17:before {left: 10px;}
-.box17:after {right: 10px;}
-.box17 p {
-    margin: 0; 
-    padding: 0;
+
+body {
+  margin-top: 50px;
+  height: 100%;
 }
 
-
-/* blog */
-
-.blog {
-  float: left;
-  width: 33.333333%;
-	padding: 10px;
-	box-sizing: border-box;
+.text1{
+  position: relative;
+  top: 50px;
+  left: 30px;
 }
 
-.timestamp{
-  font-size: 0.5em;
+b.login{
+  height: 30px;
+  position: relative;
+  top: 5px;
 }
 
-.title{
-  font-size: 3em;
-  color: black
+form#new_user.new_user{
+  margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
-.content{
-  font-size: 2em;
-  max-width:　10em;
-  margin: 10px 50px;
-  border: solid 5px black;
-  background: skyblue
+/*blog_list*/
+
+.kiji{
+  position: relative;
+  top: 130px;
+  position: absolute;
+  left: 400px;
 }
 
-.img-wrap {
-  animation: img-wrap 2s cubic-bezier(.4, 0, .2, 1);
+.kiji1{
 }
 
-@keyframes img-wrap {
-  0% {
-    clip-path: circle(0 at 50% 50%);
-    -webkit-clip-path: circle(0 at 50% 50%);
-  }
-  100% {
-    clip-path: circle(100% at 50% 50%);
-    -webkit-clip-path: circle(100% at 50% 50%);
-  }
+.kijiitiran{
+  font-size: 30px;
+  padding:5px 10px;
+  width: 500px;
+  border-bottom:1px solid black;
+}
+
+.kijiitiran1{
+  position: relative;
+  bottom: 1px;
+  border-bottom:1px solid black;
+}
+
+/*blog_form*/
+
+.bfield{
+  width: 800px;
+  position: relative;
+  top: 20px;
+  left: 50px;
+}
+
+.field{
 }

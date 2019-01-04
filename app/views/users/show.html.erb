@@ -1,31 +1,35 @@
-<h1><%= @user.email %>ページ</h1>
+<body class="haikei2">
+<div class="ti"><%= @user.email %>のページ</div>
+
+<div class="sidebar">
+  <% if user_signed_in? %>
+  登録者リスト
+  <% @users.each do |u| %>
+    <li><a href="/users/<%= u.id %>"><%= u.email %>さん</a><br></li>
+  <% end %>
+</div>
+
 <% if @user.id == current_user.id %>
   <%= link_to 'ブログ新規作成', new_blog_path(@blog), class: "btn btn-primary" %>
     <% if @user.blogs.any? %>
       <%= render'shared/blog_list' %>
-      <p><%= will_paginate @blogs %></p>
+    <% else %>
+    <center class="mu">ブログを書いてみよう！</center>
     <% end %>
 <% else %>
   <% if @isRoom == true %>
-    <div class="col-md-3">
-    <% @blogs.each do |blog| %>
-         <%= link_to blog do %>
-           <p><%= blog.title %></p>
-           <p class="timestamp">Posted <%= time_ago_in_words(blog.created_at) %> ago.</p>
-         <% end %>
-        <% end %>
-    <%= will_paginate @blogs %>
-    </div>
-    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+    <%= render'shared/blog_list' %>
+    <a href="/rooms/<%= @roomId %>">チャットへ</a>
   <% else %>
     <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, :value=> @user.id %>
-      <% end %>
-      <%= render'shared/blog_list' %>
-      <%= f.submit "チャットを始める" %>
-    <% end %>
+    <%= fields_for @entry do |e| %>
+    <%= e.hidden_field :user_id, :value=> @user.id %>
   <% end %>
+  <%= render'shared/blog_list' %>
+  <%= f.submit "チャットを始める" %>
 <% end %>
 
-<div><%= link_to "ユーザー 一覧に戻る", users_path, class: "btn btn-primary" %></div>
+<% end %>
+<% end %>
+<% end %>
+</body>

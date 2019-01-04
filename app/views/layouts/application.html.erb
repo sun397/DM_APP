@@ -12,7 +12,6 @@
     <![endif]-->
   </head>
   
-  <body>
     <% if user_signed_in? %>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
@@ -20,14 +19,12 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "ホーム",   root_path %></li>
-            <li><%= link_to "マイページ", users_path(params[:id]) %></li>
+            <li><%= link_to "マイページ", user_path(current_user.id) %></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </nav>
       </div>
     </header>
-    <div class="container">
-    </div>
     <% else %>
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
@@ -41,10 +38,14 @@
         </nav>
       </div>
     </header>
-    <center>
-      <h1>DMアプリ<div class="img-wrap"><%= image_tag("illustration_a_03.png") %></h1></div>
-    </center>
-    <% end %>
-    <%= yield %>
+  <body class="haikei">
+    <div class="container">
+    </div>
+    <div class="text1">
+      <h1>DMアプリ</h1>
+      ユーザーがブログを投稿し、メッセージのやり取りをしよう
+    </div>
   </body>
+     <% end %>
+     <%= yield %>
 </html>
